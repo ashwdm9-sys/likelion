@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  background: url("backgorund.jpg") no-repeat center center/cover;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.55),
+      rgba(0, 0, 0, 0.65)
+    );
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px;
+}
+
+.portfolio-card {
+  width: min(720px, 90%);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.25em;
+  margin-bottom: 30px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 28px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.info-item.full {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.08em;
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.github-section {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.github-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.08em;
+}
+
+.github-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.25);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.github-icon:hover {
+  transform: scale(1.08);
+  opacity: 0.8;
+}
+
+.insta-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.25);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.insta-icon:hover {
+  transform: scale(1.08);
+  opacity: 0.8;
+}
+
+.insta-icon.clicked {
+  transform: scale(1.18);
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .container {
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+  }
+
+  .portfolio-card {
+    padding: 28px 22px;
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-item.full {
+    grid-column: auto;
+  }
+}
+
+/* 카드 등장 전 상태 */
+.portfolio-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+/* 카드 등장 후 상태 */
+.portfolio-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GitHub 아이콘 클릭 효과 */
+.github-icon.clicked {
+  transform: scale(1.18);
+}
