@@ -17,7 +17,6 @@ body {
   background: url("backgorund.jpg") no-repeat center center/cover;
 }
 
-/* 배경 위 어두운 레이어 */
 .background-overlay {
   position: fixed;
   top: 0;
